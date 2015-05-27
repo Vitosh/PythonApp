@@ -1,0 +1,49 @@
+
+{% extends 'blog/base.html' %}
+{% block content%}
+{%  load  staticfiles %}
+
+<table class="table">
+
+  <tr>
+    <th></th>
+    <th>Task name</th>
+    <th>Comments</th>
+    <th>Status</th>
+    <th>Completed on</th>
+  </tr>
+
+  {%for post  in  posts %}
+  <tr>
+    <td>
+       {{ forloop.counter }}
+    </td>
+    
+    <td>
+        <a  href="{%  url 'post_edit' pk=post.pk  %}">{{  post.title  }}
+        </a>
+    </td>
+
+    <td>
+      {{ post.text|linebreaks}}
+    </td>
+
+    <td>
+      {% if post.status %}
+        <img src= {%  static  "pics/done.png" %}>
+      {% else %}
+        <img src= {%  static  "pics/pending.png" %}>
+      {% endif %}
+    </td>
+
+    <td>
+      {% if post.published_date %}
+        {{post.published_date}}
+      {% else %}
+        <img src= {%  static  "pics/na.png" %}>
+      {% endif %}
+    </td>
+  </tr>
+  {%  endfor  %}
+</table>
+{%endblock content%}
