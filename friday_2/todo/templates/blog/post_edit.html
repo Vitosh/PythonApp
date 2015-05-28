@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <a  href="{%  url 'todo.views.post_new' %}" class="top-menu"><h2>Add task</h2></a>
+  <h1>To Do Task:</h1>
+  <form method="POST" class="post-form">{% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>
+    <button type="submit" name="save" value="save" class="save btn btn-success">Save</button>
+  </form>
+{% endblock %}

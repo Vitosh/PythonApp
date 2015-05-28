@@ -1,0 +1,20 @@
+{%  extends '../../todo/templates/blog/base.html'  %}
+{%  block content %}
+  <body>
+  <h1>Welcome, {{ user.username }}</h1>
+
+  <div class="list-group">
+    <a href="{% url 'todo' %}" class="list-group-item active"> 
+      <span class="glyphicon glyphicon-briefcase"></span> To Do List 
+      <span class="badge" >{{sum_completed}}</span>
+      <span class="badge" style = "background-color: red; color:white">{{sum_pending}}</span>
+    </a>
+    <a href="{% url 'tvseries' %}" class="list-group-item">
+      <span class="glyphicon glyphicon-film"></span> TV Series <span class="badge"></span>
+    </a>
+  </div>
+
+
+  </body>
+</html>
+{%endblock content%}

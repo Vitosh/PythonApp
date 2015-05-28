@@ -1,0 +1,30 @@
+{%  extends '../../todo/templates/blog/base.html'  %}
+{%  block content %}
+
+  <body>
+    <h1>Magic Databases Online</h1>
+    <h2>Noone cares about your data, nothing is secured!<h2>
+    <h3>At least we are honest!</h3>
+    <p>
+      <h2><a href="{% url 'register' %}">Register here or login below:</a></h2>
+    </p>
+
+    <form method="POST" action="{% url 'index' %}">
+    {% csrf_token %}
+    <div>
+      <span class="label label-primary">Username  </span><p>
+      <input type="text" class="textboxclass" placeholder="Put user name" name="username" />
+    </div>
+    <p>
+    <div>
+      <span class="label label-danger">Password  </span><p>
+      <input type="password" class="textboxclass" placeholder="Put password" name="password" />
+    </div>
+
+      <input type="submit" class="btn btn-info" value="Login" />
+    </form>
+  </body>
+</html>
+{%endblock content%}
+
+

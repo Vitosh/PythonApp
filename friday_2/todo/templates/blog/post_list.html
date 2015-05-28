@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% block content%}
+{%  load  staticfiles %}
+<a  href="{%  url 'todo.views.post_new' %}" ><h3>Add task</h3></a>
+
+<div class="list-group">
+<table class="table table-hover">
+  <tr>
+    <th></th>
+    <th><h4>Task name</h4></th>
+    <th><h4>Comments</h4></th>
+    <th><h4>Status<h4></th>
+    <th><h4>Completed on<h4></th>
+  </tr>
+  
+
+  {%for post  in  posts %}
+  <tr class>
+    <td>
+       <h4>{{ forloop.counter }}</h4>
+    </td>
+    
+    <td>
+        <H4><a  href="{%  url 'post_edit' pk=post.pk  %}">{{  post.title  }}
+        </a></H4>
+    </td>
+
+    <td>
+      <H4>{{ post.text|linebreaks}}</H4>
+    </td>
+
+    <td>
+      {% if post.status %}
+        <img src= {%  static  "pics/done.png" %}>
+      {% else %}
+        <img src= {%  static  "pics/pending.png" %}>
+      {% endif %}
+    </td>
+
+    <td>
+      {% if post.published_date %}
+        <H4>{{post.published_date}}</H4>
+      {% else %}
+        <img src= {%  static  "pics/na.png" %}>
+      {% endif %}
+    </td>
+  </tr>
+  {%  endfor  %}
+</table>
+</div>
+
+{%endblock content%}

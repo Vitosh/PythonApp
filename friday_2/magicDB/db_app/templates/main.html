@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Magic Online Database</title>
+  </head>
+
+  <body>
+  <h1>Welcome, {{ user.username }}</h1>
+
+  <p><a href="{% url 'logout' %}">Logout here</a></p>
+  <p> 
+  </p>
+  <a href="{% url 'todo' %}">TO Do</a><p>
+  <a href="{% url 'tvseries' %}">Tv Series</a><p>
+  <a href="{% url 'groceries' %}">Groceries</a><p>
+
+
+  <div>
+    You have the following projects:
+  </div>
+  </body>
+</html>

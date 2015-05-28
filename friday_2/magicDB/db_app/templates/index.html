@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Magic Assistant</title>
+  </head>
+
+  <body>
+    <h1>Magic Databases Online</h1>
+    <h2>Noone cares about your data, nothing is secured!<h2>
+    <h3>At least we are honest!</h3>
+    <p>
+      <h2><a href="{% url 'register' %}">Register here or login below:</a></h2>
+    </p>
+
+    <form method="POST" action="{% url 'index' %}">
+    {% csrf_token %}
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" />
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>

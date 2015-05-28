@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 id="title">Add Table</h1>
+    <div>
+        <form method = "POST" action="{% url 'tables' %}">
+        {% csrf_token %}
+        	<h3>Name</h3>
+            <input type="text" name = name />
+            <h3>Column</h3>
+            <input type="text" name = column />
+            <h3>Text</h3>
+            <input type="text" name = txt />
+            <input type = "submit"/>
+        </form>
+    </div>
+
+{% endblock %}

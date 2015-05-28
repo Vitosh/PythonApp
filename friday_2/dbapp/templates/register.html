@@ -1,0 +1,26 @@
+{%  extends '../../todo/templates/blog/base.html'  %}
+{%  block content %}
+<body>
+  <h1>Register here:</h1>
+  <form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    <div>
+      <span class="label label-primary">Username  </span><p>
+      <input type="text" class="textboxclass" placeholder="Put user name" name="username" />
+    </div>
+    <p>
+    <div>
+      <span class="label label-success">E-mail    </span><p>
+      <input type="email" class="textboxclass" placeholder="vitosh.doynov@gmail.com" name="email"/>
+    </div>
+
+    <div>
+      <span class="label label-danger">Password  </span><p>
+      <input type="password" class="textboxclass" placeholder="Put password" name="password" />
+    </div>
+
+    <input type="submit" class="btn btn-info" value="Register" />
+  </form>
+</body>
+</html>
+{%endblock content%}
